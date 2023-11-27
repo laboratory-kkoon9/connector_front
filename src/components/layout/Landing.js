@@ -1,7 +1,7 @@
-import React from 'react';
-import { Link, Redirect } from 'react-router-dom';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
+import React from "react";
+import { Link, Redirect } from "react-router-dom";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
 
 const Landing = ({ isAuthenticated }) => {
   if (isAuthenticated) {
@@ -11,10 +11,10 @@ const Landing = ({ isAuthenticated }) => {
     <section className="landing">
       <div className="dark-overlay">
         <div className="landing-inner">
-          <h1 className="x-large">Sopt Connector</h1>
+          <h1 className="x-large">Connectors</h1>
           <p className="lead">
-            Create sopter profile/portfolio, share posts and get help from other
-            sopters
+            Create connector profile/portfolio, share posts and get help from
+            other connectors
           </p>
           <div className="buttons">
             <Link to="/register" className="btn btn-primary">
