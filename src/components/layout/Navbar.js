@@ -33,9 +33,6 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
         <Link to="/profiles">Connectors</Link>
       </li>
       <li>
-        <Link to="/game">Game</Link>
-      </li>
-      <li>
         <Link to="/register">Register</Link>
       </li>
       <li>
