@@ -12,11 +12,9 @@ const AddEducation = ({ addEducation, history }) => {
     from: "",
     to: "",
     current: false,
-    description: "",
   });
   const [toDateDisabled, toggleDisabled] = useState(false);
-  const { school, degree, fieldOfStudy, from, to, current, description } =
-    formData;
+  const { school, degree, fieldOfStudy, from, to, current } = formData;
   const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
   const onSubmit = (e) => {
@@ -94,16 +92,6 @@ const AddEducation = ({ addEducation, history }) => {
             onChange={(e) => onChange(e)}
             disabled={toDateDisabled ? "disabled" : ""}
           />
-        </div>
-        <div className="form-group">
-          <textarea
-            name="description"
-            cols="30"
-            rows="5"
-            placeholder="Job Description"
-            value={description}
-            onChange={(e) => onChange(e)}
-          ></textarea>
         </div>
         <input type="submit" className="btn btn-primary my-1" />
         <Link className="btn my-1" to="/dashboard">
