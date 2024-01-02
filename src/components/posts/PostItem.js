@@ -10,14 +10,14 @@ const PostItem = ({
   removeLike,
   deletePost,
   auth,
-  post: { id, text, name, avatar, user, likes, comments, date },
+  post: { id, text, name, avatar, userId, likeCount, commentCount, date },
   showActions,
 }) => {
   return (
     <Fragment>
       <div className="post bg-white p-1 my-1">
         <div>
-          <Link to={`/profile/${user}`}>
+          <Link to={`/profile/user/${userId}`}>
             <img className="round-img" src={avatar} alt="" />
             <h4>{name}</h4>
           </Link>
@@ -35,7 +35,7 @@ const PostItem = ({
                 className="btn btn-light"
               >
                 <i className="fas fa-thumbs-up" />{" "}
-                {likes.length > 0 && <span>{likes.length}</span>}
+                {likeCount > 0 && <span>{likeCount}</span>}
               </button>
               <button
                 onClick={(e) => removeLike(id)}
@@ -46,11 +46,11 @@ const PostItem = ({
               </button>
               <Link to={`/posts/${id}`} className="btn btn-primary">
                 Discussion{" "}
-                {comments.length > 0 && (
-                  <span className="comment-count">{comments.length}</span>
+                {commentCount > 0 && (
+                  <span className="comment-count">{commentCount}</span>
                 )}
               </Link>
-              {!auth.loading && user === auth.user.id && (
+              {!auth.loading && userId === auth.user.id && (
                 <button
                   onClick={(e) => deletePost(id)}
                   type="button"
