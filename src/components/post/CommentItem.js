@@ -7,7 +7,7 @@ import { deleteComment } from "../../actions/post";
 
 const CommentItem = ({
   postId,
-  comment: { id, text, name, avatar, user, date },
+  comment: { id, text, name, avatar, userId, date },
   auth,
   deleteComment,
 }) => {
@@ -15,7 +15,7 @@ const CommentItem = ({
     <Fragment>
       <div className="post bg-white p-1 my-1">
         <div>
-          <Link to={`/profile/${user}`}>
+          <Link to={`/profile/${userId}`}>
             <img className="round-img" src={avatar} alt="" />
             <h4>{name}</h4>
           </Link>
@@ -25,7 +25,7 @@ const CommentItem = ({
           <p className="post-date">
             Posted on <Moment format="YYYY/MM/DD">{date}</Moment>
           </p>
-          {!auth.loading && user === auth.user.id && (
+          {!auth.loading && userId === auth.user.id && (
             <button
               onClick={(e) => deleteComment(postId, id)}
               type="button"
